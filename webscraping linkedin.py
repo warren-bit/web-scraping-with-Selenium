@@ -42,26 +42,13 @@ class jobs:
         all_jobs.click()
         time.sleep(5)
 
+    def find_jobs(self):
+        chart = driver.find_element(By.CLASS_NAME, 'scaffold-layout__list-container')
+        jobs = chart.find_element(By.TAG_NAME, 'li')
+        print(len(jobs))
+
 sign = sign_in("shanefilan055@gmail.com", "K^&P/jKs^A=#5tJ")
 sign.log_in()
 job = jobs("cyber security jobs")
 job.search_jobs()
 driver.quit()
-
-
-# # searching for jobs
-# search_box = driver.find_element(By.XPATH, '//*[@id="global-nav-typeahead"]/input')
-# search_box.send_keys("cyber security jobs")
-# search_box.send_keys(Keys.RETURN)
-# time.sleep(5)
-# # see all jobs
-# all_jobs = driver.find_element(By.XPATH, '//*[@id="main"]/div/div/div[1]/div[2]/a')
-# all_jobs.click()
-# time.sleep(5)
-
-# chart = driver.find_element(By.CLASS_NAME, 'scaffold-layout__list-container')
-# jobs = chart.find_element(By.TAG_NAME, 'li')
-# print(len(jobs))
-
-
-# K^&P/jKs^A=#5tJ
