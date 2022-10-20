@@ -1,4 +1,5 @@
 from lib2to3.pgen2 import driver
+from turtle import title
 from urllib import request
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -14,6 +15,7 @@ s = Service(r"./driver/chromedriver.exe")
 driver = webdriver.Chrome(service=s)
 driver.get("https://www.linkedin.com/home")
 
+# signing in to linkedin
 class sign_in:
     def __init__(self, email, password):
         self.email = email
@@ -28,6 +30,7 @@ class sign_in:
         sign_in_button.click()
         time.sleep(5)
 
+# categorizing the jobs
 class jobs:
     def __init__(self, job_category):
         self.job_category = job_category
@@ -43,12 +46,13 @@ class jobs:
         time.sleep(5)
 
     def find_jobs(self):
-        chart = driver.find_element(By.CLASS_NAME, 'scaffold-layout__list-container')
-        jobs = chart.find_element(By.TAG_NAME, 'li')
-        print(len(jobs))
-
+        t = driver.find_element(By.XPATH, '//*[@id="main"]/div/section[1]/div/ul')
+        title = t.find_elements(By.TAG_NAME, 'a')
+        print(title.text)
+        
 sign = sign_in("shanefilan055@gmail.com", "K^&P/jKs^A=#5tJ")
 sign.log_in()
 job = jobs("cyber security jobs")
 job.search_jobs()
+job.find_jobs()
 driver.quit()
