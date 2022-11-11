@@ -41,15 +41,15 @@ class jobs:
         search_box.send_keys(Keys.RETURN)
         time.sleep(5)
         # see all jobs
-        all_jobs = driver.find_element(By.XPATH, '//*[@id="main"]/div/div/div[1]/div[2]/a')
+        all_jobs = driver.find_element(By.CLASS_NAME, 'app-aware-link ')
         all_jobs.click()
         time.sleep(5)
 
     def find_jobs(self):
-        t = driver.find_element(By.XPATH, '//*[@id="main"]/div/section[1]/div/ul')
-        title = t.find_elements(By.TAG_NAME, 'a')
-        print(title.text)
-        
+        t = driver.find_element(By.TAG_NAME, 'ul')
+        job = t.find_elements(By. TAG_NAME, 'li')
+        print("Number of jobs:", len(job))
+
 sign = sign_in("shanefilan055@gmail.com", "K^&P/jKs^A=#5tJ")
 sign.log_in()
 job = jobs("cyber security jobs")
